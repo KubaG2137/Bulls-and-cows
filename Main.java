@@ -55,7 +55,13 @@ public class Main {
                 for (int i = 0; i < length; i++) {
                     System.out.print("*");
                 }
-                System.out.format(" (0-9, a-%s).%n", set.charAt(numOfSymbols - 1));
+                if (numOfSymbols > 10) {
+                    System.out.format(" (0-9, a-%s).%n", set.charAt(numOfSymbols - 1));
+                } else if (numOfSymbols < 10 && numOfSymbols > 1) {
+                    System.out.format(" (0-%s).%n", set.charAt(numOfSymbols - 1));
+                } else {
+                    System.out.println(" (0).");
+                }
                 System.out.println("Okay, let's start a game!");
                 String strCode = generateCode(length, numOfSymbols, set);
                 int turn = 1;
